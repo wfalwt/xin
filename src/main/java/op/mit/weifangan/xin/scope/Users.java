@@ -47,15 +47,15 @@ public class Users extends AbastractScope{
         //attr.setCompressionType(Compression.Algorithm.LZO);
 
         /**
-         * timed tags
+         * timed info, multi versions
          */
-        HColumnDescriptor timed_tags = new HColumnDescriptor("timed_info");
-        timed_tags.setMaxVersions(Integer.MAX_VALUE);
+        HColumnDescriptor timedInfo = new HColumnDescriptor("timed_info");
+        timedInfo.setMaxVersions(Integer.MAX_VALUE);
         //timed_tags.setCompressionType(Compression.Algorithm.LZO);
-        timed_tags.setBloomFilterType(BloomType.ROW);
+        timedInfo.setBloomFilterType(BloomType.ROW);
 
         htd.addFamily(attr);
-        htd.addFamily(timed_tags);
+        htd.addFamily(timedInfo);
         admin.createTable(htd);
     }
 
