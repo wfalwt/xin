@@ -90,16 +90,16 @@ public class Users extends AbastractScope{
                             put.addColumn(Bytes.toBytes("attr"), Bytes.toBytes("email"), Bytes.toBytes(record.get("email")));
                         }
                         if ( record.get("login_name") != null ) {
-                            put.addColumn(Bytes.toBytes("attr"), Bytes.toBytes("login_name"), Bytes.toBytes(record.get("cust_name")));
+                            put.addColumn(Bytes.toBytes("attr"), Bytes.toBytes("login_name"), Bytes.toBytes(record.get("login_name")));
                         }
                         if ( record.get("pwd") != null ) {
-                            put.addColumn(Bytes.toBytes("attr"), Bytes.toBytes("pwd"), Bytes.toBytes(record.get("rank_name")));
+                            put.addColumn(Bytes.toBytes("attr"), Bytes.toBytes("pwd"), Bytes.toBytes(record.get("pwd")));
                         }
                         if ( record.get("nickname") != null ) {
-                            put.addColumn(Bytes.toBytes("attr"), Bytes.toBytes("nickname"), Bytes.toBytes(record.get("nick_name")));
+                            put.addColumn(Bytes.toBytes("attr"), Bytes.toBytes("nickname"), Bytes.toBytes(record.get("nickname")));
                         }
                         if ( record.get("avatar") != null ) {
-                            put.addColumn(Bytes.toBytes("attr"), Bytes.toBytes("avatar"), Bytes.toBytes(record.get("head_pic")));
+                            put.addColumn(Bytes.toBytes("attr"), Bytes.toBytes("avatar"), Bytes.toBytes(record.get("avatar")));
                         }
 
                         String fetchTimedInfo = "SELECT * FROM timed_info WHERE uid = " + uid;
@@ -123,7 +123,6 @@ public class Users extends AbastractScope{
                 }
             });
         }
-
         pool.awaitTermination(1000, TimeUnit.SECONDS);
     }
 }
