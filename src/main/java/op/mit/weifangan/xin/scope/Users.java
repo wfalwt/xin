@@ -84,7 +84,7 @@ public class Users extends AbastractScope{
                             put.addColumn(Bytes.toBytes("attr"), Bytes.toBytes("cellphone"), Bytes.toBytes(record.get("mobile")));
                         }
                         if (record.get("id_no") != null ) {
-                            put.addColumn(Bytes.toBytes("attr"), Bytes.toBytes("id_no"), Bytes.toBytes(record.get("identity_card")));
+                            put.addColumn(Bytes.toBytes("attr"), Bytes.toBytes("id_no"), Bytes.toBytes(record.get("id_no")));
                         }
                         if ( record.get("email") != null ) {
                             put.addColumn(Bytes.toBytes("attr"), Bytes.toBytes("email"), Bytes.toBytes(record.get("email")));

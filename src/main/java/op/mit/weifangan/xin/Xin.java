@@ -1,10 +1,15 @@
 package op.mit.weifangan.xin;
 
+import op.mit.weifangan.xin.scope.AbastractScope;
+import op.mit.weifangan.xin.scope.Users;
 import org.apache.commons.cli.*;
+
+import java.io.IOException;
+import java.sql.SQLException;
 
 public class Xin {
 
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws ParseException, IOException, SQLException, InterruptedException {
 
         CommandLineParser parser = new BasicParser();
         Options opt = new Options();
@@ -69,11 +74,17 @@ public class Xin {
         }
         //attention : JDBC url options
         String jdbc = "jdbc:mysql://" + host + ":" + port + "/" + db + "?characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=convertToNull";
-        if(dataType.equals("customer")){
-            System.out.println("start to process customer data");
-
+        if(dataType.equals("users")){
+            System.out.println("start to process user data");
+            Users u = new Users(jdbc,user,pwd,quorum);
+            ScopeToHBase(u);
         }else {
             System.out.println("invalid dataType " + dataType);
         }
+    }
+
+    public static void ScopeToHBase(AbastractScope scope) throws IOException, SQLException, InterruptedException {
+        scope.createHtable();
+        scope.toHtable();
     }
 }
