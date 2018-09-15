@@ -4,17 +4,11 @@ Xin is a framework example to import data from RDBMS to HBase, currently MySQL i
 ## usage arguments
 
 > -t/--type    data scope,need program extends scope
-
 > -u/--user    MySQL username to connect
-
 > -e/--pwd     MySQL password to connect
-
 > -d/--db      MySQL database to use
-
 > -h/--host    MySQL host address to connect
-
 > -p/--port    MySQL port,default 3306
-
 > -q/--quorum  HBase zookeeper quorum address
 
 ## usage in cli
